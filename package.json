@@ -1,0 +1,56 @@
+{
+  "name": "ts-lib-template",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": "",
+  "description": "typescript library template",
+  "repository": "git@github.com:zhuba-Ahhh/ts-lib-template.git",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix"
+    ]
+  },
+  "scripts": {
+    "dev": "tsup --watch --sourcemap --env.NODE_ENV development",
+    "build": "tsup --env.NODE_ENV production",
+    "test": "vitest run --passWithNoTests",
+    "test:dev": "vitest --passWithNoTests",
+    "test:dev-ui": "vitest --ui --passWithNoTests",
+    "lint": "eslint \"**/*.{js,ts}\"",
+    "release": "bump --commit --push --tag && pnpm publish",
+    "reset": "npx rimraf ./node_modules && pnpm install",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@jsdevtools/version-bump-prompt": "^6.1.0",
+    "@types/node": "^20.10.6",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@vitest/ui": "^1.1.3",
+    "eslint": "^8.56.0",
+    "eslint-config-standard-with-typescript": "^35.0.0",
+    "eslint-define-config": "^1.24.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
+    "rimraf": "^5.0.5",
+    "tsup": "^7.2.0",
+    "typescript": "~5.0.4",
+    "vite-tsconfig-paths": "^4.2.3",
+    "vitest": "^1.1.3"
+  }
+}
